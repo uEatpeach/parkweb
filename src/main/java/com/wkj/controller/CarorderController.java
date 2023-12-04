@@ -155,6 +155,26 @@ public class CarorderController {
         return carCost;
     }
 
+//    @RequestMapping(value = "OCRNumberPark.action", method = RequestMethod.POST)
+//    @ResponseBody
+//    public Map<String, Object> OCRNumberPark(String Base64Image) {
+//        String bImg = Base64Image.substring(23);
+//        String msg = null;
+//        try {
+//            msg = HttpURLconn.getCarCarNumber(bImg);
+//            String carnumber = FastJson.getJsonString(msg);
+//            String province = carnumber.substring(0, 1);
+//            String number = carnumber.substring(1);
+//            Map<String, Object> carNumber = new HashMap<String, Object>();
+//            carNumber.put("province", province);
+//            carNumber.put("number", number);
+//            return carNumber;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
     @RequestMapping(value = "OCRNumberPark.action", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> OCRNumberPark(String Base64Image) {
@@ -165,6 +185,9 @@ public class CarorderController {
             String carnumber = FastJson.getJsonString(msg);
             String province = carnumber.substring(0, 1);
             String number = carnumber.substring(1);
+
+//            String number = carnumber.substring(2);
+
             Map<String, Object> carNumber = new HashMap<String, Object>();
             carNumber.put("province", province);
             carNumber.put("number", number);
